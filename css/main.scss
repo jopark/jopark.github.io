@@ -1504,7 +1504,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		h2 {
 			@include vendor('transform', 'scale(1)');
-			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
+			@include vendor('transition', ('transform 0.7s ease', 'opacity 0.7s ease'));
 			display: inline-block;
 			font-size: 1.75em;
 			opacity: 1;
@@ -1513,8 +1513,8 @@ $baseurl: '{{ site.baseurl }}/images';
 			z-index: 1;
 
 			&:before, &:after {
-				@include vendor('transition', 'width 0.85s ease');
-				@include vendor('transition-delay', '0.25s');
+				@include vendor('transition', 'width 1.2s ease');
+				@include vendor('transition-delay', '0.3s');
 				background: _palette(fg-bold);
 				content: '';
 				display: block;
@@ -1544,8 +1544,8 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		.more {
-			@include vendor('transition', ('transform 0.75s ease', 'opacity 0.75s ease'));
-			@include vendor('transition-delay', '3.5s');
+			@include vendor('transition', ('transform 0.3s ease', 'opacity 0.1s ease'));
+			@include vendor('transition-delay', '0.7s');
 			@include vendor('transform', 'translateY(0)');
 			border: none;
 			bottom: 0;
@@ -1583,7 +1583,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		&:after {
 			@include vendor('pointer-events', 'none');
 			@include vendor('transition', 'opacity #{_duration(fadein)} ease-in-out');
-			@include vendor('transition-delay', '1.25s');
+			@include vendor('transition-delay', '0.5s');
 			content: '';
 			background: _palette(bg);
 			display: block;
@@ -1687,7 +1687,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	#main {
 		> header {
-			@include padding(12em, 0);
+			@include padding(5em, 0);
 			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
@@ -1813,7 +1813,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	body.landing {
 		#page-wrapper {
-			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
+			@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0))', 'url("#{$baseurl}/banner_ucla.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1834,7 +1834,8 @@ $baseurl: '{{ site.baseurl }}/images';
 
 			#banner,
 			.wrapper.style4 {
-				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("#{$baseurl}/banner.jpg")'));
+				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0))', 'url("#{$baseurl}/banner_ucla.jpg")'));
+				background-attachment: fixed;
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
@@ -1850,9 +1851,89 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	.ul1>li
 	{
-		margin-bottom : 10px;
+		margin-bottom : 7px;
 	}
 	.ul2>li
 	{
 		margin-bottom : 15px;
+	}
+	
+/* Three columns side by side */
+	.column {
+		width: 33.3%;
+		margin-bottom: 33px;
+		padding: 0 8px;
+	}
+
+/* Display the columns below each other instead of side by side on small screens */
+	@media screen and (max-width: 650px) {
+		.column {
+			width: 100%;
+			display: block;
+		}
+	}
+	
+	@media screen and (min-width: 1080px) {
+		.column {
+			width: 33.3%;
+			margin-bottom: 33px;
+			padding: 0 33px;
+		}
+	}
+
+/* Add some shadows to create a card effect */
+	.card {
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+
+/* Some left and right padding inside the container */
+	.container {
+		padding: 0 7px;
+	}
+
+/* Clear floats */
+	.container::after, .row::after {
+		content: "";
+		clear: both;
+	}
+
+	.title {
+		color: grey;
+		text-align: center;
+	}
+
+	.button {
+		border: none;
+		outline: 0;
+		display: inline-block;
+		padding: 8px;
+		color: #FFFAF0;
+		background-color: #000;
+		text-align: center;
+		cursor: pointer;
+		width: 100%;
+		font-size: 1em;
+	}
+
+	.button:hover {
+		background-color: #555;
+	}
+
+/* Varying column heights */	
+	.row.make-columns {
+		-moz-column-width: 18em;
+		-webkit-column-width: 18em;
+		column-width: 18em;
+		-moz-column-gap: 3em;
+		-webkit-column-gap:3em;
+		column-gap:3em;
+	}
+
+	.row.make-columns > div {
+		display: table; /* IE 11 */
+		padding: 0.5rem;
+		width: 100%;
+		-webkit-column-break-inside: avoid; /* Chrome, Safari */
+		page-break-inside: avoid; /* Theoretically FF 20+ */
+		break-inside: avoid-column; /* IE 11 */
 	}
