@@ -1835,10 +1835,15 @@ $baseurl: '{{ site.baseurl }}/images';
 			#banner,
 			.wrapper.style4 {
 				@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0))', 'url("#{$baseurl}/banner_ucla.jpg")'));
-				background-attachment: fixed;
+				background-attachment: scroll;
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
+				/*
+				@supports (-webkit-overflow-scrolling: touch) {
+					background-attachment: scroll;
+				}
+				*/
 			}
 
 			#footer {

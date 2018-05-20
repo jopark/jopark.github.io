@@ -14,4 +14,20 @@
 
   ga('create', 'UA-102616581-2', 'auto');
   ga('send', 'pageview');
+  
+  function handleOutboundLinkClicks(event) {
+	ga('send', 'event', {
+		eventCategory: 'Outbound Link',
+		eventAction: 'click',
+		eventLabel: event.target.href,
+		transport: 'beacon'
+		});
+	}
+	
+	var trackOutboundLink = function(url) {
+		ga('send', 'event', 'outbound', 'click', url, {
+		'transport': 'beacon',
+		'hitCallback': function(){document.location = url;}
+		});
+	}
 </script>
