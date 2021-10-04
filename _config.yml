@@ -14,7 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jopark.github.com" # the base hostname & protocol for your site
 social:
   #twitter: https://twitter.com/<username>
-  email: mailto:jop@ucla.edu
+  email: mailto:parklab@ucla.edu
   phone: tel:3102675746
   skype: skype:jpark432?call
   google: https://scholar.google.com/citations?user=9qHkdoYAAAAJ&hl=en
