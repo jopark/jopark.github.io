@@ -1865,7 +1865,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	
 /* Three columns side by side */
 	.column {
-		width: 33.3%;
+		width: 33.33%;
 		margin-bottom: 33px;
 		padding: 0 8px;
 	}
@@ -1880,7 +1880,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	
 	@media screen and (min-width: 1080px) {
 		.column {
-			width: 33.3%;
+			width: 33.33%;
 			margin-bottom: 33px;
 			padding: 0 33px;
 		}
@@ -1889,6 +1889,7 @@ $baseurl: '{{ site.baseurl }}/images';
 /* Add some shadows to create a card effect */
 	.card {
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		margin-bottom: 1.5rem;
 	}
 
 /* Some left and right padding inside the container */
@@ -1926,19 +1927,56 @@ $baseurl: '{{ site.baseurl }}/images';
 
 /* Varying column heights */	
 	.row.make-columns {
-		-moz-column-width: 18em;
-		-webkit-column-width: 18em;
-		column-width: 18em;
-		-moz-column-gap: 3em;
-		-webkit-column-gap:3em;
-		column-gap:3em;
+		-moz-column-width: 19em;
+		-webkit-column-width: 19em;
+		column-width: 19em;
+		-moz-column-gap: 1em;
+		-webkit-column-gap:1em;
+		column-gap:1em;
 	}
 
 	.row.make-columns > div {
-		display: table; /* IE 11 */
-		padding: 1rem;
+		display: inline-block; /* IE 11 */
+		padding: .5rem;
 		width: 100%;
 		-webkit-column-break-inside: avoid; /* Chrome, Safari */
 		page-break-inside: avoid; /* Theoretically FF 20+ */
 		break-inside: avoid-column; /* IE 11 */
 	}
+	
+	.card-columns {		
+		column-break-inside: avoid;
+		@media (min-width: 576px) {
+			column-count: 1;
+		}
+		@media (min-width: 768px) {
+			column-count: 2;
+		}
+		@media (min-width: 992px) {
+			column-count: 3;
+		}
+		@media (min-width: 1200px) {
+			column-count: 4;
+		}
+		@media (min-width: 2200px) {
+			column-count: 5;
+		}
+		@media (min-width: 3000px) {
+			column-count: 6;
+		}
+		@media (min-width: 3900px) {
+			column-count: 7;
+		}
+	}
+	
+	.card-columns > div {
+		display: inline-block;
+		width: 100%;
+	}
+	
+/* Hover to enlarge images
+	.card > span:hover {
+		width: 13em;
+		z-index: 9999;
+	}
+*/
