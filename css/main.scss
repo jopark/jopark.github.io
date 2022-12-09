@@ -1372,7 +1372,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	body.is-menu-visible {
 		#page-wrapper {
-			opacity: 0.35;
+			opacity: 0.50;
 
 			&:before {
 				display: block;
